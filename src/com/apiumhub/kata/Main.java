@@ -1,31 +1,26 @@
 package com.apiumhub.kata;
 
-import java.util.regex.Pattern;
+import static com.apiumhub.kata.Constants.*;
+import static com.apiumhub.kata.port.Console.print;
+import static com.apiumhub.kata.processor.string.ChangeVocalsProcessor.changeVocals;
+import static com.apiumhub.kata.processor.string.InvertCaseProcessor.invertCase;
 
-import static java.lang.Character.*;
-import static java.util.regex.Pattern.CASE_INSENSITIVE;
-
+/**
+ * Over engineering:
+ * <ul>
+ *     <li>Extremely applying <b>S</b>OLID</li>
+ *     <li>Over implementation (works with capital letters)</li>
+ *     <li>Too much architecture for the implementation</li>
+ *     <li>Over testing</li>
+ *     <li>Framework/tools/libraries agnostic</li>
+ * </ul>
+ */
 public class Main {
 
-    private static final String MSG = "DDD es basicamente estructurar carpetas";
-    private static final Pattern PATTERN_VOCALS = Pattern.compile("[aeiouáàâãäåæçèéêëìíîïðñòóôõøùúûü]", CASE_INSENSITIVE);
-
     public static void main(String[] args) {
-        System.out.println(MSG);
-        System.out.println(changeVocals());
-        System.out.println(invertCase());
-    }
-
-    static String changeVocals() {
-        return PATTERN_VOCALS.matcher(MSG).replaceAll("i");
-    }
-
-    static String invertCase() {
-        var arr = MSG.toCharArray();
-        for (var i = 0; i < arr.length; i++) {
-            arr[i] = i % 2 == 0 ? toLowerCase(arr[i]) : toUpperCase(arr[i]);
-        }
-        return new String(arr);
+        print(TITLE);
+        print(changeVocals(MSG, "i", false));
+        print(invertCase(MSG));
     }
 
 }
