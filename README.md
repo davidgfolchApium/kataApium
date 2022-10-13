@@ -26,7 +26,10 @@ Requisitos no funcionales:
 ## Over engineering applied:
 
 * Heavily applying <B>SRP</B>
+* Over architecture (Full of YAGNI's)
+  * interfaces
+  * generics
+  * factory
 * Over implementation (works with capital letters)
-* Framework/tools/libraries agnostic 
-* Over architecture for the implementation
+* Framework/tools/libraries agnostic
 * Over testing

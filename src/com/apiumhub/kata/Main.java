@@ -1,9 +1,10 @@
 package com.apiumhub.kata;
 
-import static com.apiumhub.kata.Constants.*;
+import com.apiumhub.kata.processor.IVocalsProcessor;
+import com.apiumhub.kata.processor.ICaseProcessor;
+
+import static com.apiumhub.kata.IConstants.*;
 import static com.apiumhub.kata.port.Console.print;
-import static com.apiumhub.kata.processor.string.ChangeVocalsProcessor.changeVocals;
-import static com.apiumhub.kata.processor.string.InvertCaseProcessor.invertCase;
 
 /**
  * Over engineering:
@@ -17,10 +18,13 @@ import static com.apiumhub.kata.processor.string.InvertCaseProcessor.invertCase;
  */
 public class Main {
 
+    private static final IVocalsProcessor<String,String> vocalsProcessor = Factory.instanceVocalsProcessor();
+    private static final ICaseProcessor<String> caseProcessor = Factory.instanceCaseProcessor();
+
     public static void main(String[] args) {
         print(TITLE);
-        print(changeVocals(MSG, "i", false));
-        print(invertCase(MSG));
+        print(vocalsProcessor.replace(MSG, REPLACEMENT_LETTER, false));
+        print(caseProcessor.invert(MSG));
     }
 
 }

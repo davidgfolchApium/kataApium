@@ -1,6 +1,6 @@
 package com.apiumhub.kata.test;
 
-import static com.apiumhub.kata.Icons.getIcon;
+import static com.apiumhub.kata.IIcons.getIcon;
 import static com.apiumhub.kata.port.Console.print;
 
 public class Assertions {
